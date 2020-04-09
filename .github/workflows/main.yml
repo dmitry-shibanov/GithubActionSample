@@ -26,7 +26,7 @@ jobs:
       run: xcodebuild build -scheme GithubActionSample
 
     - name: Test
-      run: xcodebuild test -resultBundlePath GithubActionSample.xcresult -scheme GithubActionSample
+      run: xcodebuild test -resultBundlePath GithubActionSample.xcresult -scheme GithubActionSample -enableThreadSanitizer YES | xcpretty
 
     - uses: actions/upload-artifact@v1
       if: failure()
